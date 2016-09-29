@@ -13,7 +13,7 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.16"
+    ComputedModelVersion    "1.17"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -74,9 +74,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Dima"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Sep 29 11:31:19 2016"
-  RTWModifiedTimeStamp	  397049478
-  ModelVersionFormat	  "1.%<AutoIncrement:16>"
+  LastModifiedDate	  "Thu Sep 29 14:45:18 2016"
+  RTWModifiedTimeStamp	  397061114
+  ModelVersionFormat	  "1.%<AutoIncrement:17>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -911,7 +911,7 @@ Model {
     }
     Block {
       BlockType		      Gain
-      Name		      "Gain1"
+      Name		      "InputGain"
       SID		      "14"
       Position		      [125, 80, 155, 110]
       ZOrder		      6
@@ -1047,7 +1047,7 @@ Model {
     }
     Line {
       ZOrder		      16
-      SrcBlock		      "Gain1"
+      SrcBlock		      "InputGain"
       SrcPort		      1
       DstBlock		      "Sum1"
       DstPort		      1
@@ -1056,7 +1056,7 @@ Model {
       ZOrder		      17
       SrcBlock		      "Step"
       SrcPort		      1
-      DstBlock		      "Gain1"
+      DstBlock		      "InputGain"
       DstPort		      1
     }
   }
