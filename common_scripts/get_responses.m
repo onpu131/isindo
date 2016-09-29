@@ -19,12 +19,13 @@ objOsSimParams.FixedStep = num2str(simulationStep);
 %{
 Start simulation
 %}
-for currentAmpl = 1:1:10
+for currentAmpl = (-params.exp_count/2):1:(params.exp_count/2)
     set_param('object_os/InputGain', 'Gain', num2str(currentAmpl*10));
     objectOsSim = sim('object_os', objOsSimParams);
     data = objectOsSim.get('data');
     time = objectOsSim.get('tout');
-    simulation_array(:,:,currentAmpl) = [time, data];
+    currentSim = currentAmpl + params.exp_count/2 + 1;
+    simulation_array(:,:,currentSim) = [time, data];
 end
 
 
