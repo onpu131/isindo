@@ -21,11 +21,17 @@ set_param('object_os/Step', 'Time', num2str(params.tau));
 %{
 Start simulation
 %}
-for currentAmpl = 1:1:(params.exp_count)+1
-    if currentAmpl == (params.exp_count/2 +1)
-        continue
+for currentAmpl = 1:1:(params.exp_count)
+    if currentAmpl == (params.exp_count/2)
+        %currentAmpl = currentAmpl + 1;
+        set_param('object_os/InputGain', 'Gain', num2str(-100));
+        objectOsSim = sim('object_os', objOsSimParams);
+        data = objectOsSim.get('data');
+        time = objectOsSim.get('tout');
+        simulation_array(:,:,currentAmpl) = [time, data];
+        continue;
     end
-    set_param('object_os/InputGain', 'Gain', num2str(10*(currentAmpl-params.exp_count/2-1)));
+    set_param('object_os/InputGain', 'Gain', num2str(-100+100/(params.exp_count/2)*currentAmpl));
     objectOsSim = sim('object_os', objOsSimParams);
     data = objectOsSim.get('data');
     time = objectOsSim.get('tout');
