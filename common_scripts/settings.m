@@ -4,3 +4,6 @@ params.delta_ampl = 10;
 params.exp_count = params.max_ampl*2/params.delta_ampl;
 params.simulationTime = 2;
 params.simulationStep = 0.0001;
+params.randomizer = 'rand';
+params.base = 'min';
+params.type = 'rel';
